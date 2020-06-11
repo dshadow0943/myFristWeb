@@ -17,7 +17,7 @@ public class EmployeeUtil {
         Employee emp = new Employee();
         emp.setId(request.getParameter("id"));
         emp.setName(request.getParameter("name"));
-        emp.setGender(Boolean.parseBoolean(request.getParameter("sex")));
+        emp.setGender(Boolean.parseBoolean(request.getParameter("gender")));
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
             emp.setHireDate(sdf.parse(request.getParameter("hireDate")));

@@ -19,4 +19,6 @@ public interface EmployeeService {
 
     public String findDept_idByIdEmp(String id);
 
+    public void updateEmp(Employee emp);
+
 }

@@ -15,7 +15,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
+    <title>员工信息</title>
     <link href="${pageContext.request.contextPath}bootstrap-3.3.7-dist/dist/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
         .table{
@@ -30,7 +30,7 @@
     <script src="${pageContext.request.contextPath }/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
 </head>
-<body>
+<bod>
 <div class="container" align="center">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -62,12 +62,12 @@
                                 <td>
                                     <button type="button" class="btn btn-primary btn-sm">
                                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                        修改
+                                        <a href="${pageContext.request.contextPath}/emp/update?id=${emp.id}"> 修改 </a>
                                     </button>
 
                                     <button type="button" class="btn btn-danger btn-sm">
                                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                                        删除
+                                        <a href="${pageContext.request.contextPath}/emp/delete?id=${emp.id}"> 删除 </a>
                                     </button>
                                 </td>
                             </tr>

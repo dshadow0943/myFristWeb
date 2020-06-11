@@ -43,4 +43,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     public String findDept_idByIdEmp(String id) {
         return empDao.findDept_idById(id);
     }
+
+    @Override
+    public void updateEmp(Employee emp) {
+        empDao.update(emp);
+    }
 }

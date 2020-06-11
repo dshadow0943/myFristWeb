@@ -6,6 +6,11 @@
         insert into tb_emp(id, name, gender, hireDate, salary, dept_id)
         values(#{id}, #{name}, #{gender}, #{hireDate}, #{salary}, #{dept.id})
     </insert>
+
+    <update id="update">
+        update tb_emp set gender=#{gender}, name=#{name},  hireDate=#{hireDate}, salary=#{salary}, dept_id=#{dept.id} where id = #{id}
+    </update>
+
     <delete id="deleteById">
         delete from tb_emp where id = #{id}
     </delete>

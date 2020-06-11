@@ -10,16 +10,18 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html>
 <head>
-    <title>Title</title>
+    <title>员工添加</title>
 </head>
 <body>
-<br><br><h1 align="center"> 员工添加页面  </h1>
+<br><br><h1 align="center"> 添加员工  </h1>
 <form action="${pageContext.request.contextPath}/emp/add" method="POST">
-    <table border="1" width="60%" align="center">
+    <table border="1" width="500pt" align="center">
         <tr><td align="right">员工编号</td><td><input type="text" name="id" value="${param.id}"><font color="red">${errors.id}</font></td></tr>
         <tr><td align="right">员工姓名</td><td><input type="text" name="name" value="${param.name}"><font color="red">${errors.name}</font></td></tr>
-        <tr><td align="right">员工性别</td><td><input type="radio" name="sex" value="true" ${fn:contains(param.sex, 'true')?'checked':''}>男&nbsp;&nbsp;&nbsp;
-            <input type="radio" name="sex" value="false" ${fn:contains(param.sex, 'false')?'checked':''}>女</td></tr>
+        <tr><td align="right">员工性别</td><td>
+            <input type="radio" name="gender" value="true" ${fn:contains(param.sex, 'true')?'checked':''}>男&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="gender" value="false" ${fn:contains(param.sex, 'false')?'checked':''}>女
+        </td></tr>
         <tr><td align="right">员工入职日期</td><td><input type="date" name="hireDate" value="${param.hireDate}"><font color="red">${errors.hireDate}</font></td></tr>
         <tr><td align="right">员工工资</td><td><input type="text" name="salary" value="${param.salary}"><font color="red">${errors.salary}</font></td></tr>
         <tr><td align="right">员工所在部门</td>

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.jit.oa_crud.dao.DepartmentDao">
 
-    <insert id="save" parameterType="cn.jit.oa_crud.beans.Department">
+<insert id="save" parameterType="cn.jit.oa_crud.beans.Department">
         insert into tb_dept(id, name) values(#{dept.id}, #{dept.name})
     </insert>
 
-    <select id="findAll" resultType="cn.jit.oa_crud.beans.Department">
+<select id="findAll" resultType="cn.jit.oa_crud.beans.Department">
         select * from tb_dept
     </select>
 
-    <select id="findById" resultType="cn.jit.oa_crud.beans.Department">
+<select id="findById" resultType="cn.jit.oa_crud.beans.Department">
         select * from tb_dept where id=#{id}
     </select>
-    <select id="findAllDeptName" resultType="java.lang.String">
+<select id="findAllDeptName" resultType="java.lang.String">
         select name from tb_dept
     </select>
 

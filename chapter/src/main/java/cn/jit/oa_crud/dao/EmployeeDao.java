@@ -25,4 +25,6 @@ public interface EmployeeDao {
     public List<String> findDept_idAll();
 
     public String findDept_idById(String id);
+
+    public void update(Employee mep);
 }
