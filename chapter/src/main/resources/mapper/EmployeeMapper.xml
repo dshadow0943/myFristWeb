@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jit.oa_crud.dao.EmployeeDao">
+
+    <insert id="save" parameterType="cn.jit.oa_crud.beans.Employee">
+        insert into tb_emp(id, name, gender, hireDate, salary, dept_id)
+        values(#{id}, #{name}, #{gender}, #{hireDate}, #{salary}, #{dept.id})
+    </insert>
+    <delete id="deleteById">
+        delete from tb_emp where id = #{id}
+    </delete>
+
+    <select id="findAll" resultType="cn.jit.oa_crud.beans.Employee">
+        select * from tb_emp
+
+    </select>
+
+    <select id="findById" resultType="cn.jit.oa_crud.beans.Employee">
+        select * from tb_emp where id = #{id};
+    </select>
+    <select id="findDept_idAll" resultType="java.lang.String">
+        select dept_id from tb_emp
+    </select>
+    <select id="findDept_idById" resultType="java.lang.String">
+        select dept_id from tb_emp where id = #{id}
+    </select>
+
+</mapper>

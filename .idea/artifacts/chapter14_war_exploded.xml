@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="chapter14:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/chapter14_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="chapter14/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="chapter14" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="JUnit5.4" module-name="chapter14" />
+          <element id="file-copy" path="$PROJECT_DIR$/chapter14/web/WEB-INF/lib/mysql-connector-java-5.1.47.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/chapter14/web/WEB-INF/lib/mybatis-3.5.2.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

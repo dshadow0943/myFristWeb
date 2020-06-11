@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 配置开发坏境， 该标签有一个default属性， 用来执行以哪一个环境起作用 -->
+    <environments default="mysqlDev">
+        <environment id="mysqlDev">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+<!--                指定数据库驱动类所在的完整路径-->
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/oa_crud"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+<!--        <mapper resource="cn.jit.chapter14.dao.UserMapper.xml"/>-->
+<!--        <mapper class="cn.jit.chapter14.dao.EmployeeMapper"/>-->
+        <mapper class="cn.jit.chapter14.dao.DepartmentDao"/>
+    </mappers>
+</configuration>

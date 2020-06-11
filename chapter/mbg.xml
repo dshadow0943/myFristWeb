@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+
+    <!-- 配置数据库连接的相关信息 -->
+    <context id="Mysql5Tables" targetRuntime="MyBatis3">
+        <!-- 去掉生成文件中的大量注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/oa_crud"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        <!-- 用来配置自动生成的JavaBean实体类所在的路径 -->
+        <javaModelGenerator targetPackage="cn.jit.oa_crud.entity" targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!-- 用来指定自动生成的接口类的映射文件位置 -->
+        <sqlMapGenerator targetPackage="mapper"  targetProject=".\src\main\resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+        <!-- 用来指定自动生成接口类的位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.jit.oa_crud.mapper"  targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+        <!-- 用来指定表到实体类的生成策略,tableName属性用来指定表的名称，domainObjectName属性用来指定生成实体类的名称 -->
+        <table tableName="tb_dept" domainObjectName="Department"/>
+        <table tableName="tb_emp" domainObjectName="Employee"/>
+
+    </context>
+</generatorConfiguration>
