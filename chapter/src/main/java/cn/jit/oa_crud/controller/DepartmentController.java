@@ -18,15 +18,7 @@ public class DepartmentController {
 
     @RequestMapping(value = "/shows")
     public String getdepts(Map<String, Object> map){
-
-//        List<Department> depts = deptService.findAllDepts();
-//        for (Department e:depts){
-//            System.out.println(e.toString());
-//        }
-
         map.put("depts", deptService.findAllDepts());
-
         return "dept/shows";
     }
-
 }

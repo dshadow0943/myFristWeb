@@ -29,7 +29,7 @@ public interface EmployeeMapper {
     @Select("select * from tb_employee where salary>=#{min} and salary<=#{max}")
     public List<Employee> findEmpsBySalary(@Param("min")int minSalary, @Param("max")int maxSalary);
 
-    @Update(value = "update tb_employee set name = #{name}, sex = #{sex}, hireDate=#{hireDate}, salary=#{salary}")
+    @Update(value = "update tb_employee set name = #{name}, sex = #{sex}, hireDate=#{hireDate}, salary=#{salary} where id = #{id}")
     public void updateEmp(Employee employee);
 
     @Delete(value = "delete from tb_employee where id = #{id}")

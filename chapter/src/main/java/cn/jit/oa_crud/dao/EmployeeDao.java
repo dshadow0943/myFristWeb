@@ -20,11 +20,15 @@ public interface EmployeeDao {
     //查询员工信息
     public Employee findById(String id);
 
+    //根据员工id查询员工信息
     public void deleteById(String id);
 
+    //查询所有员工的部门id
     public List<String> findDept_idAll();
 
+    //根据员工id查询该员工所在部门的id
     public String findDept_idById(String id);
 
+    //更该员工数据
     public void update(Employee mep);
 }

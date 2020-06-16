@@ -21,8 +21,7 @@ public class SqlSessionFactoryUtils {
     //采用单例模式来保证工厂创建唯一
     public static SqlSessionFactory getSqlSessionFactory(){
         if(factory == null) {
-//创建SqlsessionFactory工厂
-            System.out.println("is: "+is);
+    //创建SqlsessionFactory工厂
             factory = new SqlSessionFactoryBuilder().build(is);
         }
         return factory;

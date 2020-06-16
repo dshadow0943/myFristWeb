@@ -25,7 +25,7 @@ public class ShowMyCartSessionServlet extends HttpServlet {
         HttpSession session = req.getSession();
         ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
 
-        out.println("<br><br><h1>我的购物车</h1>");
+        out.println("<br><br><h1 align = 'center'>我的购物车</h1>");
         out.println("<table border = '1' width = '65%' align = 'center'>");
         out.println("<tr><th>条目编号</th><th>商品名称</th><th>商品价格</th><th>商品数量</th><th>条目总金额</th></tr>");
         if (cart != null && cart.getItems().size()>0){
@@ -46,6 +46,6 @@ public class ShowMyCartSessionServlet extends HttpServlet {
 
         out.println("</table>");
 
-        out.println("<h3><a href = '"+req.getContextPath()+"/cookie/shows'>继续购物</a>&nbsp;&nbsp;<a href=''>结账</a></h3>");
+        out.println("<h3 align = 'center'><a href = '"+req.getContextPath()+"/cookie/shows'>继续购物</a>&nbsp;&nbsp;<a href=''>结账</a></h3>");
     }
 }

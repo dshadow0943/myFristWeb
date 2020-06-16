@@ -1,8 +1,6 @@
 package cn.jit.chapter14.test;
 
-import cn.jit.chapter14.dao.DepartmentDao;
 import cn.jit.chapter14.dao.EmployeeMapper;
-import cn.jit.chapter14.daomain.Department;
 import cn.jit.chapter14.daomain.Employee;
 import cn.jit.chapter14.utils.SqlSessionFactoryUtils;
 import org.apache.ibatis.session.SqlSession;
@@ -17,10 +15,24 @@ public class MyBatisForAnnotationTest {
     public void testSave(){
         SqlSession sqlSession = SqlSessionFactoryUtils.getSqlSession();
         EmployeeMapper mapper = sqlSession.getMapper(EmployeeMapper.class);
-        Employee emp = new Employee("100001", "广发", true, new Date(), 6000);
+        Employee emp = new Employee("100000", "张三", true, new Date(), 6000);
         boolean result = mapper.save(emp);
         sqlSession.commit();
         System.out.println(result);
+        sqlSession.close();
+    }
+
+    @Test
+    public void testSaves(){
+        SqlSession sqlSession = SqlSessionFactoryUtils.getSqlSession();
+        EmployeeMapper mapper = sqlSession.getMapper(EmployeeMapper.class);
+        Employee[] emps = new Employee[5];
+        for (int i = 0; i < 5; i++) {
+            emps[i] = new Employee("10000"+(i+1), "姓名"+i, true, new Date(), 6000+i*400);
+            boolean result = mapper.save(emps[i]);
+            sqlSession.commit();
+            System.out.println(result);
+        }
         sqlSession.close();
     }
 
@@ -48,7 +60,7 @@ public class MyBatisForAnnotationTest {
     public void testSelectEmpsBySalary(){
         SqlSession sqlSession = SqlSessionFactoryUtils.getSqlSession();
         EmployeeMapper mapper = sqlSession.getMapper(EmployeeMapper.class);
-        List<Employee> emps = mapper.findEmpsBySalary(5000, 10000);
+        List<Employee> emps = mapper.findEmpsBySalary(6500, 80000);
         for (Employee emp:emps){
             System.out.println(emp);
         }
@@ -61,7 +73,8 @@ public class MyBatisForAnnotationTest {
         EmployeeMapper mapper = sqlSession.getMapper(EmployeeMapper.class);
         Employee emp = mapper.findById("100001");
         System.out.println(emp);
-        emp.setSalary(8000);
+        emp.setName("李四");
+        emp.setSalary(7000);
         mapper.updateEmp(emp);
         emp = mapper.findById("100001");
         System.out.println(emp);
@@ -77,31 +90,6 @@ public class MyBatisForAnnotationTest {
         mapper.deleteById("100001");
         emp = mapper.findById("100001");
         System.out.println(emp);
-        sqlSession.close();
-    }
-
-    @Test
-    public void testSelectDeptAll(){
-        SqlSession sqlSession = SqlSessionFactoryUtils.getSqlSession();
-        DepartmentDao mapper = sqlSession.getMapper(DepartmentDao.class);
-        List<Department> emps = mapper.findAll();
-        for (Department emp:emps){
-            System.out.println(emp.toString());
-        }
-        sqlSession.close();
-    }
-
-    @Test
-    public void testSelectDeptById(){
-        SqlSession sqlSession = SqlSessionFactoryUtils.getSqlSession();
-        DepartmentDao mapper = sqlSession.getMapper(DepartmentDao.class);
-        Department dept = mapper.findById("00001");
-        System.out.println(dept);
-
-        List<Department> emps = mapper.findAll();
-        for (Department emp:emps){
-            System.out.println(emp.toString());
-        }
         sqlSession.close();
     }
 

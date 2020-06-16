@@ -13,6 +13,9 @@ import java.util.Map;
 
 public class EmployeeUtil {
 
+    /**
+     * 组装员工类
+     */
     public Employee margeEmployee(HttpServletRequest request, DepartmentService deptService){
         Employee emp = new Employee();
         emp.setId(request.getParameter("id"));
@@ -33,8 +36,6 @@ public class EmployeeUtil {
 
     /**
      * 填充部门信息
-     * @param emps
-     * @return
      */
     public List<Employee> perfect(List<Employee> emps, DepartmentService deptService){
         for (Employee e:emps){
@@ -45,8 +46,6 @@ public class EmployeeUtil {
 
     /**
      * 对提交表单进行验证
-     * @param request
-     * @return
      */
     public Map<String, String> validate(HttpServletRequest request){
         Map<String, String> errors = new HashMap<String, String>();
