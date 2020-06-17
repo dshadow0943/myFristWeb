@@ -1,0 +1,45 @@
+use chapter14;
+create table tb_user
+(
+    id int primary key auto_increment,
+    name varchar(15) not null,
+    gender boolean default true,
+    birthday date,
+    mobile char(11)
+);
+
+create table tb_employee
+(
+    id varchar(15) primary key,
+    name varchar(15) not null ,
+    sex boolean,
+    hireDate date,
+    salary int
+);
+
+insert into tb_employee(id, name, sex, hireDate, salary)
+values ('100001', '阿萨德', true, '2000-10-10' , 6000);
+
+delete from tb_employee where id = 100001;
+
+
+use oa_crud;
+
+create table tb_dept(
+    id varchar(20) primary key ,
+    name varchar(30) not null unique
+);
+
+create table tb_emp(
+    id varchar(20) primary key ,
+    name varchar(20) not null ,
+    gender boolean,
+    hireDate date,
+    salary int,
+    dept_id varchar(20),
+    constraint dept_id_FK foreign key (dept_id) references tb_dept(id)
+);
+
+insert into tb_dept(id, name) values('00006', '12313');
+
+select * from tb_dept;
